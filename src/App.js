@@ -12,17 +12,26 @@ function App() {
     const newCart = [...cart,data];
     setCart(newCart);
   };
-
   return (
-    <div>
-      <Header></Header>
-      <Cart cart={cart}></Cart>
+    <div className="container">
+      <div className="row">
+        <div className="col-sm-6">
+            <Header></Header>
+        </div>
+        <div className="col-sm-6">
+          <div className="float-right">
+            <Cart cart={cart}></Cart>
+          </div>
+        </div>
+      </div>     
+     
       <div>
-        {
-          data.map(course => <Course course={course} handleAddCourse ={handleAddCourse}></Course>)
-        }
+           <div className="row">
+            {
+              data.map(course => <Course course={course} handleAddCourse ={handleAddCourse} key={course.Key}></Course>)
+            }
+          </div>
       </div>
-      
     </div>
   );
 }
